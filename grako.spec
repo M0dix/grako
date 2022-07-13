@@ -2,7 +2,7 @@
 
 Name: grako
 Version: 3.99.9
-Release: alt1
+Release: alt2
 
 Summary: Grako (for grammar compiler).
 License: BSD
@@ -58,6 +58,9 @@ This package contains python3 module for %name.
 
 
 %changelog
+* Thu Jul 14 2022 Vadim Yufin <yufin0166@gmail.com> 3.99.9-alt2
+- Fixed import in the file grammar.py
+
 * Mon Dec 09 2019 Andrey Bychkov <mrdrew@altlinux.org> 3.99.9-alt1
 - Initial build for Sisyphus
 
