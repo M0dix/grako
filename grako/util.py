@@ -44,8 +44,10 @@ if PY3:
     if PY33:
         from collections import abc
         Mapping = abc.Mapping
+        Iterable = abc.Iterable
     else:
         Mapping = collections.Mapping
+        Iterable = collections.Iterable
     zip_longest = itertools.zip_longest
     import builtins
     imap = map
@@ -188,7 +190,7 @@ def eval_escapes(s):
 
 def isiter(value):
     return (
-        isinstance(value, collections.Iterable) and
+        isinstance(value, Iterable) and
         not isinstance(value, strtype)
     )
 
@@ -244,7 +246,7 @@ def timestamp():
 
 
 def asjson(obj, seen=None):
-    if isinstance(obj, collections.Mapping) or isiter(obj):
+    if isinstance(obj, Mapping) or isiter(obj):
         # prevent traversal of recursive structures
         if seen is None:
             seen = set()
@@ -254,7 +256,7 @@ def asjson(obj, seen=None):
 
     if hasattr(obj, '__json__') and type(obj) is not type:
         return obj.__json__()
-    elif isinstance(obj, collections.Mapping):
+    elif isinstance(obj, Mapping):
         result = collections.OrderedDict()
         for k, v in obj.items():
             try:
