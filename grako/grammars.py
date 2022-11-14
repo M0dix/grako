@@ -7,9 +7,9 @@ import os
 import functools
 from collections import defaultdict
 try:
-	from collections.abc import Mapping
+    from collections.abc import Mapping
 except ImportError:
-	from collections import Mapping
+    from collections import Mapping
 from copy import copy
 
 from grako.util import indent, trim, ustr, urepr, strtype, compress_seq, chunks
